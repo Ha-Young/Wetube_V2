@@ -1,0 +1,11 @@
+{
+  "name": "webtube",
+  "version": "1.0.0",
+  "description": "nomad academy lecture that clone youtube",
+  "main": "index.js",
+  "author": "hychoi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
