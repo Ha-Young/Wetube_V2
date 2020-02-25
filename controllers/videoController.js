@@ -7,7 +7,6 @@ export const search = (req, res, next) => {
         }
     } = req;
     res.render("search", {pageTitle: "Search", searchingBy});
-
 }
 export const video = (req, res, next) => res.render("videos", {pageTitle: "Video"});
 
