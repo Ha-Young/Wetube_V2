@@ -3,6 +3,7 @@ import routes from "../routes";
 export const getJoin = (req, res, next) => {
     res.render('join', {pageTitle: "Join"});
 }
+
 export const postJoin = (req, res, next) => {
     const {
         body: {name, email, password, password2}
@@ -17,8 +18,16 @@ export const postJoin = (req, res, next) => {
         res.redirect(routes.home)
     }
 }
-export const login = (req, res, next) => res.render('login', {pageTitle: "Login"});
-export const logout = (req, res, next) => res.render('logout', {pageTitle: "Logout"});
+export const getLogin = (req, res, next) => res.render('login', {pageTitle: "Login"});
+export const postLogin = (req, res, next) => {
+    // To Do: Check userInfo
+    res.redirect(routes.home);
+}
+export const logout = (req, res, next) => 
+{
+    // To Do: Process Log Out
+    res.redirect(routes.home);
+}
 export const users = (req, res, next) => res.render('users', {pageTitle: "Users"});
 export const userDetail = (req, res, next) => res.render('userDetail', {pageTitle: "User Detail"});
 export const editProfile = (req, res, next) => res.render('editProfile', {pageTitle: "Edit Profile"});
