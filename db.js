@@ -1,50 +1,15 @@
-export const videos = [
+import mongoose from "mongoose";
+
+mongoose.connect("mongodb://localhost:27017/ha-tube", 
     {
-        id:42342,
-        title: 'Video awesome',
-        description: 'This is something I love',
-        views:24,
-        videoFile:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4",
-        creator: {
-            id:12341,
-            name:"hayoung",
-            email:"hayeong28@naver.com",
-        }
-    },
-    {
-        id:23342,
-        title: 'Video perfect',
-        description: 'This is something I love',
-        views:2,
-        videoFile:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4",
-        creator: {
-            id:12341,
-            name:"hayoung",
-            email:"hayeong28@naver.com",
-        }
-    },
-    {
-        id:41242,
-        title: 'Video great',
-        description: 'This is something I love',
-        views:43,
-        videoFile:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4",
-        creator: {
-            id:12341,
-            name:"hayoung",
-            email:"hayeong28@naver.com",
-        }
-    },
-    {
-        id:12342,
-        title: 'Video terrerfic',
-        description: 'This is something I love',
-        views:52,
-        videoFile:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4",
-        creator: {
-            id:12341,
-            name:"hayoung",
-            email:"hayeong28@naver.com",
-        }
-    }
-]
+      useNewUrlParser: true,
+      useFindAndModify: false  
+    });
+
+const db = mongoose.connection;
+
+const handleOpen = () => console.log("✅ Connected to DB");
+const handleError = () => console.log(`❌ Error on DB Connection:${error}`);
+
+db.once("open", handleOpen);
+db.on("error", handleError);
