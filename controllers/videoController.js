@@ -4,6 +4,7 @@ import Video from "../models/Video"
 export const home = async(req, res, next) => {
     try {
         const videos = await Video.find({});
+        console.log(videos);
         res.render("home", {pageTitle: "Home", videos});
     } catch(error) {
         console.log(error);
@@ -25,16 +26,33 @@ export const video = (req, res, next) => res.render("videos", {pageTitle: "Video
 export const getUpload = (req, res, next) => 
     res.render("upload", {pageTitle: "Upload"});
 
-export const postUpload = (req, res) => {
-    const {
-        body: {
-            file,
+export const postUpload = async (req, res) => {
+    try
+    {
+        const {
+            body: {
+                title,
+                description
+            },
+            file: {path, size}
+        } = req;
+    
+        const newVideo = await Video.create({
+            fileUrl: path,
             title,
-            description
-        }
-    } = req;
-    // To Do: Upload and save video
-    res.redirect(routes.videoDetail(23342));
+            description,
+            size
+        });
+        
+        console.log(newVideo);
+
+        res.redirect(routes.videoDetail(newVideo.id));
+    }
+    catch(error) 
+    {
+        console.log(error);
+    }
+    
 }
 
 export const videoDetail = (req, res, next) => res.render("videoDetail", {pageTitle: "Video Detail"});
