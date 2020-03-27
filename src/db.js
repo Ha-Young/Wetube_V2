@@ -2,7 +2,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL, 
+console.log(process.env.MONGO_URL_PROD);
+
+mongoose.connect(process.env.MONGO_URL_PROD, 
     {
       useNewUrlParser: true,
       useFindAndModify: false  ,

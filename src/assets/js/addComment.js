@@ -17,8 +17,6 @@ const addComment = comment => {
     increaseNumber();
 };
 
-
-
 const sendComment = async comment => {
   const videoId = window.location.href.split("/videos/")[1];
   const response = await axios({

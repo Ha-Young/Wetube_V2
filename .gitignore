@@ -112,3 +112,5 @@ temp/
 
 package-lock.json
 uploads
+
+build
