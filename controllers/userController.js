@@ -21,8 +21,6 @@ export const postJoin = async (req, res, next) => {
             const user = await User({
                 name,
                 email,
-                photoUrl,
-                githubId
             });
             await User.register(user,password);
             console.log("join user : ", user);
