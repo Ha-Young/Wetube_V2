@@ -1,6 +1,9 @@
 {
   "name": "webtube",
   "version": "1.0.0",
+  "engines": {
+    "node": "13.8.0"
+  },
   "description": "nomad academy lecture that clone youtube",
   "main": "index.js",
   "author": "hychoi",
